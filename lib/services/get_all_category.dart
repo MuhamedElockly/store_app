@@ -9,7 +9,13 @@ class AllCategoryService {
     http.Response response = await http.get(
       Uri.parse('https://fakestoreapi.com/products/categories'),
     );
-    categories = jsonDecode(response.body);
-    return categories;
+    if (response.statusCode == 200) {
+      categories = jsonDecode(response.body);
+      return categories;
+    } else {
+      throw Exception(
+        'there is a problem with status code ${response.statusCode}',
+      );
+    }
   }
 }

@@ -1,6 +1,6 @@
 class ProductModel {
   final int id;
-  final String tittle;
+  final String title;
   final int price;
   final String desc;
   final String category;
@@ -9,7 +9,7 @@ class ProductModel {
 
   ProductModel(
       {required this.id,
-      required this.tittle,
+      required this.title,
       required this.price,
       required this.desc,
       required this.category,
@@ -22,7 +22,7 @@ class ProductModel {
       desc: jsonData['description'],
       image: jsonData['image'],
       price: jsonData['price'],
-      tittle: jsonData['tittle'],
+      title: jsonData['title'],
       ratingModel: RatingModel.fromJson(jsonData['rating']),
     );
   }

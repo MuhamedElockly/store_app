@@ -7,7 +7,7 @@ class AllCategoryService {
   List<dynamic> categories = [];
 
   Future<List<dynamic>> getAllCategories() async {
-    List<dynamic> data = await Api().get(
+    List<dynamic> data = await Api().get(uri: 
       'https://fakestoreapi.com/products/categories',
     );
     return data;

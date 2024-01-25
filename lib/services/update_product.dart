@@ -10,7 +10,7 @@ class UpdateProductService {
      ProductModel productModel) async {
     Map<String, String> header = {};
     
-    http.Response response = await http.post(
+    http.Response response = await http.put(
       Uri.parse(url),
       body: productModel,
       headers: header,

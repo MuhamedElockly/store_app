@@ -2,21 +2,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:store_app/models/product_model.dart';
 
 class UpdateProductService {
+  final String url='https://fakestoreapi.com/products/:id';
   Future<dynamic> updateProduct(
-      {required String url,
-      @required dynamic body,
-      @required String? token}) async {
+     ProductModel productModel) async {
     Map<String, String> header = {};
-    if (token != null) {
-      header.addAll(
-        {'Authorization': 'Bearer $token'},
-      );
-    }
+    
     http.Response response = await http.post(
       Uri.parse(url),
-      body: body,
+      body: productModel,
       headers: header,
     );
     if (response.statusCode == 200) {

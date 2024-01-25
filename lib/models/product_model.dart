@@ -1,3 +1,5 @@
+import 'package:store_app/helper/convert_to_double.dart';
+
 class ProductModel {
   final int id;
   final String title;
@@ -21,7 +23,7 @@ class ProductModel {
       id: jsonData['id'],
       desc: jsonData['description'],
       image: jsonData['image'],
-      price: jsonData['price'],
+      price: ConvertToDouble.checkDouble(jsonData['price']),
       title: jsonData['title'],
       ratingModel: RatingModel.fromJson(jsonData['rating']),
     );
@@ -35,7 +37,7 @@ class RatingModel {
   RatingModel({required this.rate, required this.count});
   factory RatingModel.fromJson(jsonData) {
     return RatingModel(
-      rate: jsonData['rate'],
+      rate: ConvertToDouble.checkDouble(jsonData['rate']),
       count: jsonData['count'],
     );
   }

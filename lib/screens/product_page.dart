@@ -15,54 +15,60 @@ class ProductPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomTextField(
-              onChanged: (data) {
-                title = data;
-              },
-              obscureText: false,
-              hintText: 'Product Name',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              onChanged: (data) {
-                desc = data;
-              },
-              obscureText: false,
-              hintText: 'Desc',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              onChanged: (data) {
-                price = data as double?;
-              },
-              obscureText: false,
-              hintText: 'Price',
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomTextField(
-              onChanged: (data) {
-                image = data;
-              },
-              obscureText: false,
-              hintText: 'Image',
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            CustomButton(
-              buttonText: 'Update',
-              color: Colors.blue,
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 150,
+              ),
+              CustomTextField(
+                onChanged: (data) {
+                  title = data;
+                },
+                obscureText: false,
+                hintText: 'Product Name',
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                onChanged: (data) {
+                  desc = data;
+                },
+                obscureText: false,
+                hintText: 'Desc',
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                onChanged: (data) {
+                  price = double.parse(data);
+                },
+                obscureText: false,
+                hintText: 'Price',
+                inputType: TextInputType.number,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                onChanged: (data) {
+                  image = data;
+                },
+                obscureText: false,
+                hintText: 'Image',
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              CustomButton(
+                buttonText: 'Update',
+                color: Colors.blue,
+              )
+            ],
+          ),
         ),
       ),
     );

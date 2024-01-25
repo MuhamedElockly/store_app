@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:store_app/models/product_model.dart';
 
 class CustomCard extends StatelessWidget {
+  final ProductModel productModel;
+
+  const CustomCard({super.key, required this.productModel});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -59,8 +63,9 @@ class CustomCard extends StatelessWidget {
             right: 20,
             bottom: 80,
             child: Image.network(
-              'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+              productModel.image,
               height: 100,
+              width: 100,
             ),
           ),
         ],

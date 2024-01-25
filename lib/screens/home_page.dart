@@ -35,7 +35,9 @@ class HomePage extends StatelessWidget {
             future: getAllProductsService().getAllProducts(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
+                List<ProductModel> products = snapshot.data!;
                 return GridView.builder(
+                  itemCount: products.length,
                   clipBehavior: Clip.none,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -43,7 +45,7 @@ class HomePage extends StatelessWidget {
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 100),
                   itemBuilder: (context, index) {
-                    return CustomCard();
+                    return CustomCard(productModel: products[index],);
                   },
                 );
               } else {
